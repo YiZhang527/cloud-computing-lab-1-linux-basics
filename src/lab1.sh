@@ -101,7 +101,7 @@ ps -ef | grep bash
 # Use the current date to name the archive file.
 echo "Creating a compressed archive of the 'backup' directory..."
 # TODO: create a dated archive of "${PROJECT_DIR}/backup" inside "${PROJECT_DIR}/backup"
-tar -czf "${PROJECT_DIR}/backup/backup_$(date +%Y%m%d).tar.gz" "${PROJECT_DIR}/backup"
+tar --exclude="backup_*.tar.gz" -czf "${PROJECT_DIR}/backup/backup_$(date +%Y%m%d).tar.gz" "${PROJECT_DIR}/backup"
 
 # 8. Log Completion
 # Create a log message indicating the completion of the assignment tasks and store it in a 'README.md' file inside the 'project' directory.
