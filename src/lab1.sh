@@ -10,7 +10,7 @@ PROJECT_DIR="/tmp/project"
 # Create the main 'project' directory and its subdirectories: 'data', 'scripts', 'logs', and 'backup'.
 echo "Creating directory structure..."
 # TODO: create the required directories under "${PROJECT_DIR}"
-mkdir -p "${PROJECT_DIR}"/{data,scripts,logs,backup}
+mkdir -p "${PROJECT_DIR}/data" "${PROJECT_DIR}/scripts" "${PROJECT_DIR}/logs" "${PROJECT_DIR}/backup"
 
 # 2. File Operations
 # In the 'data' directory, create five text files and add sample content to each.
@@ -35,7 +35,7 @@ mv "${PROJECT_DIR}/data/file3.txt" "${PROJECT_DIR}/data/file3_renamed.txt"
 # Move 'file4.txt' and 'file5.txt' to the 'logs' directory. Force the move to avoid prompts.
 echo "Moving 'file4.txt' and 'file5.txt' to 'logs' directory..."
 # TODO: move file4.txt and file5.txt into "${PROJECT_DIR}/logs"
-mv -f "${PROJECT_DIR}"/data/{file4.txt,file5.txt} "${PROJECT_DIR}/logs"
+mv -f "${PROJECT_DIR}/data/file4.txt" "${PROJECT_DIR}/data/file5.txt" "${PROJECT_DIR}/logs"
 
 # Delete 'file2.txt' from the 'data' directory.
 echo "Deleting 'file2.txt' from 'data' directory..."
@@ -51,7 +51,7 @@ ls -laR "${PROJECT_DIR}"
 # Display the total size of the 'data' and 'logs' directories.
 echo "Displaying total size of 'data' and 'logs' directories..."
 # TODO: show the combined size of "${PROJECT_DIR}/data" and "${PROJECT_DIR}/logs"
-du -sh "${PROJECT_DIR}"/{data,logs}
+du -sh "${PROJECT_DIR}/data" "${PROJECT_DIR}/logs"
 
 # Identify and display the 10 largest files and directories within the 'project' directory.
 echo "Displaying the 10 largest files and directories in 'project'..."
@@ -67,7 +67,7 @@ chmod 644 "${PROJECT_DIR}/backup/file1.txt"
 # Set specific file permissions 644 for 'file3_renamed.txt' in the 'logs' directory.
 echo "Setting file permissions 644 for 'file3_renamed.txt'..."
 # TODO: set permissions for "${PROJECT_DIR}/logs/file3_renamed.txt" to 644
-chmod 644 "${PROJECT_DIR}/logs/file3_renamed.txt"
+chmod 644 "${PROJECT_DIR}/data/file3_renamed.txt"
 
 # Change the ownership of 'file4.txt' in the 'logs' directory to another user and group (nobody:nogroup).
 echo "Changing ownership of 'file4.txt'..."
@@ -107,7 +107,7 @@ tar -czf "${PROJECT_DIR}/backup/backup_$(date +%Y%m%d).tar.gz" "${PROJECT_DIR}/b
 # Create a log message indicating the completion of the assignment tasks and store it in a 'README.md' file inside the 'project' directory.
 echo "Logging completion message..."
 # TODO: write a one-line completion message to "${PROJECT_DIR}/README.md"
-echo "Completed the assignment tasks" > "${PROJECT_DIR}/README.md"
+echo "Assignment completed" > "${PROJECT_DIR}/README.md"
 
 # 9. Directory Existence Verification
 # Add a verification step at the end of the script to check if the 'data' directory exists. If it doesn’t, the script should log an error message and exit.
